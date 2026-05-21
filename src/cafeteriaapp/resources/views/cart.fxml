@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="639.0" prefWidth="835.0" style="-fx-background-color: #f8f9fa;"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="cafeteriaapp.resources.controllers.CartController">
+  <top>
+    <VBox prefHeight="70.0" prefWidth="835.0" style="-fx-background-color: #0d7377;">
+      <children>
+        <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="835.0" spacing="12.0">
+          <children>
+            <FontAwesomeIconView fill="WHITE" glyphName="ARROW_LEFT" size="18.0"
+                                 onMouseClicked="#goBack" style="-fx-cursor: hand;" />
+            <Label text="My Cart" textFill="WHITE" HBox.hgrow="ALWAYS">
+              <font><Font size="22.0" /></font>
+            </Label>
+          </children>
+          <padding><Insets left="20.0" right="20.0" /></padding>
+        </HBox>
+      </children>
+    </VBox>
+  </top>
+  <center>
+    <VBox prefWidth="835.0">
+      <children>
+        <ScrollPane fitToWidth="true" prefHeight="470.0" styleClass="scroll-pane">
+          <content>
+            <VBox fx:id="cartItemsContainer" prefWidth="795.0">
+              <padding><Insets left="20.0" right="20.0" top="20.0" /></padding>
+            </VBox>
+          </content>
+        </ScrollPane>
+        <Label fx:id="emptyLabel" text="Your cart is empty. Go add some items! 🛒"
+               style="-fx-font-size: 15px; -fx-text-fill: #888; -fx-alignment: CENTER;"
+               maxWidth="1.7976931348623157E308" visible="false">
+          <VBox.margin><Insets top="60.0" /></VBox.margin>
+        </Label>
+      </children>
+    </VBox>
+  </center>
+  <bottom>
+    <VBox style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, -2);">
+      <children>
+        <HBox prefHeight="60.0" prefWidth="835.0" alignment="CENTER_LEFT">
+          <children>
+            <Label fx:id="totalLabel" text="Total: ₦0.00" HBox.hgrow="ALWAYS"
+                   style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #0d7377;" />
+            <Button fx:id="placeOrderBtn" text="Place Order" onAction="#handlePlaceOrder"
+                    style="-fx-background-color: #0d7377; -fx-text-fill: white; -fx-font-size: 14px;
+                    -fx-font-weight: bold; -fx-background-radius: 10; -fx-padding: 12 30 12 30;
+                    -fx-cursor: hand;" />
+          </children>
+          <padding><Insets left="20.0" right="20.0" /></padding>
+        </HBox>
+      </children>
+      <padding><Insets top="10.0" bottom="10.0" /></padding>
+    </VBox>
+  </bottom>
+</BorderPane>

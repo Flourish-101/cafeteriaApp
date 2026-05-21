@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="560.0" prefWidth="904.0" stylesheets="@../css/styles.css"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="cafeteriaapp.resources.controllers.HomeTabController">
+  <top>
+    <GridPane prefHeight="120.0" prefWidth="904.0" style="-fx-background-color: #0d7377;">
+      <columnConstraints>
+        <ColumnConstraints hgrow="ALWAYS" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="150" />
+      </columnConstraints>
+      <rowConstraints><RowConstraints minHeight="120" /></rowConstraints>
+      <children>
+        <VBox alignment="CENTER_LEFT" GridPane.columnIndex="0">
+          <children>
+            <Label fx:id="greetingsLabel" text="Welcome!" textFill="WHITE">
+              <font><Font size="24.0" /></font>
+            </Label>
+            <Label text="What would you like today?" textFill="rgba(255,255,255,0.6)"
+                   style="-fx-font-size:13px;" />
+          </children>
+          <padding><Insets left="20.0" /></padding>
+        </VBox>
+        <VBox alignment="CENTER_RIGHT" GridPane.columnIndex="1">
+          <children>
+            <FontAwesomeIconView fill="WHITE" glyphName="USER" size="26">
+              <VBox.margin><Insets bottom="5.0" /></VBox.margin>
+            </FontAwesomeIconView>
+            <Label text="Wallet Balance" textFill="rgba(255,255,255,0.7)" style="-fx-font-size:11px;" />
+            <Label fx:id="accountBalanceLabel" text="₦0.00" textFill="WHITE"
+                   style="-fx-font-size:16px; -fx-font-weight:bold;" />
+          </children>
+          <padding><Insets right="20.0" /></padding>
+        </VBox>
+      </children>
+    </GridPane>
+  </top>
+  <center>
+    <VBox spacing="14" style="-fx-background-color: #f0fafa;">
+      <children>
+        <Label text="Browse Categories"
+               style="-fx-font-size:15px; -fx-font-weight:bold; -fx-text-fill:#0d7377;">
+          <VBox.margin><Insets left="20.0" top="16.0" /></VBox.margin>
+        </Label>
+
+        <GridPane hgap="14" vgap="14">
+          <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="50" />
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="50" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints minHeight="110" />
+            <RowConstraints minHeight="110" />
+            <RowConstraints minHeight="110" />
+          </rowConstraints>
+          <children>
+
+            <!-- ALL MENU - teal filled, full width spanning both columns -->
+            <GridPane onMouseClicked="#goToAllMenu" styleClass="shortcut-tile"
+                      GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2">
+              <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS" />
+                <ColumnConstraints minWidth="40" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints vgrow="ALWAYS" />
+                <RowConstraints minHeight="50" />
+              </rowConstraints>
+              <children>
+                <VBox alignment="TOP_RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                  <children>
+                    <FontAwesomeIconView fill="WHITE" glyphName="ARROW_RIGHT" rotate="-43" size="13" />
+                  </children>
+                  <padding><Insets right="14" top="10" /></padding>
+                </VBox>
+                <VBox alignment="BOTTOM_LEFT" GridPane.rowIndex="1">
+                  <children>
+                    <FontAwesomeIconView fill="WHITE" glyphName="TH_LIST" size="24">
+                      <VBox.margin><Insets bottom="6" /></VBox.margin>
+                    </FontAwesomeIconView>
+                    <Label text="All Menu" textFill="WHITE"
+                           style="-fx-font-size:15px; -fx-font-weight:bold;" />
+                    <Label text="Browse everything" textFill="rgba(255,255,255,0.7)"
+                           style="-fx-font-size:11px;" />
+                  </children>
+                  <padding><Insets bottom="14" left="16" /></padding>
+                </VBox>
+              </children>
+              <GridPane.margin><Insets left="20" right="20" /></GridPane.margin>
+            </GridPane>
+
+            <!-- MAIN MEALS -->
+            <GridPane onMouseClicked="#goToMainMeals" styleClass="shortcut-tile-unselected"
+                      GridPane.columnIndex="0" GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS" />
+                <ColumnConstraints minWidth="30" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints vgrow="ALWAYS" />
+                <RowConstraints minHeight="50" />
+              </rowConstraints>
+              <children>
+                <VBox alignment="TOP_RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                  <children>
+                    <FontAwesomeIconView fill="#0d7377" glyphName="ARROW_RIGHT" rotate="-43" size="12" />
+                  </children>
+                  <padding><Insets right="10" top="8" /></padding>
+                </VBox>
+                <VBox alignment="BOTTOM_LEFT" GridPane.rowIndex="1">
+                  <children>
+                    <FontAwesomeIconView fill="#0d7377" glyphName="CUTLERY" size="22">
+                      <VBox.margin><Insets bottom="5" /></VBox.margin>
+                    </FontAwesomeIconView>
+                    <Label text="Main Meals" textFill="#0d7377"
+                           style="-fx-font-size:13px; -fx-font-weight:bold;" />
+                  </children>
+                  <padding><Insets bottom="12" left="14" /></padding>
+                </VBox>
+              </children>
+              <GridPane.margin><Insets left="20" /></GridPane.margin>
+            </GridPane>
+
+            <!-- DRINKS -->
+            <GridPane onMouseClicked="#goToDrinks" styleClass="shortcut-tile-unselected"
+                      GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS" />
+                <ColumnConstraints minWidth="30" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints vgrow="ALWAYS" />
+                <RowConstraints minHeight="50" />
+              </rowConstraints>
+              <children>
+                <VBox alignment="TOP_RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                  <children>
+                    <FontAwesomeIconView fill="#0d7377" glyphName="ARROW_RIGHT" rotate="-43" size="12" />
+                  </children>
+                  <padding><Insets right="10" top="8" /></padding>
+                </VBox>
+                <VBox alignment="BOTTOM_LEFT" GridPane.rowIndex="1">
+                  <children>
+                    <FontAwesomeIconView fill="#0d7377" glyphName="GLASS" size="22">
+                      <VBox.margin><Insets bottom="5" /></VBox.margin>
+                    </FontAwesomeIconView>
+                    <Label text="Drinks" textFill="#0d7377"
+                           style="-fx-font-size:13px; -fx-font-weight:bold;" />
+                  </children>
+                  <padding><Insets bottom="12" left="14" /></padding>
+                </VBox>
+              </children>
+              <GridPane.margin><Insets right="20" /></GridPane.margin>
+            </GridPane>
+
+            <!-- SNACKS -->
+            <GridPane onMouseClicked="#goToSnacks" styleClass="shortcut-tile-unselected"
+                      GridPane.columnIndex="0" GridPane.rowIndex="2">
+              <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS" />
+                <ColumnConstraints minWidth="30" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints vgrow="ALWAYS" />
+                <RowConstraints minHeight="50" />
+              </rowConstraints>
+              <children>
+                <VBox alignment="TOP_RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                  <children>
+                    <FontAwesomeIconView fill="#0d7377" glyphName="ARROW_RIGHT" rotate="-43" size="12" />
+                  </children>
+                  <padding><Insets right="10" top="8" /></padding>
+                </VBox>
+                <VBox alignment="BOTTOM_LEFT" GridPane.rowIndex="1">
+                  <children>
+                    <FontAwesomeIconView fill="#0d7377" glyphName="SHOPPING_BAG" size="22">
+                      <VBox.margin><Insets bottom="5" /></VBox.margin>
+                    </FontAwesomeIconView>
+                    <Label text="Snacks" textFill="#0d7377"
+                           style="-fx-font-size:13px; -fx-font-weight:bold;" />
+                  </children>
+                  <padding><Insets bottom="12" left="14" /></padding>
+                </VBox>
+              </children>
+              <GridPane.margin><Insets left="20" /></GridPane.margin>
+            </GridPane>
+
+            <!-- PROTEIN -->
+            <GridPane onMouseClicked="#goToProtein" styleClass="shortcut-tile-unselected"
+                      GridPane.columnIndex="1" GridPane.rowIndex="2">
+              <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS" />
+                <ColumnConstraints minWidth="30" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints vgrow="ALWAYS" />
+                <RowConstraints minHeight="50" />
+              </rowConstraints>
+              <children>
+                <VBox alignment="TOP_RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                  <children>
+                    <FontAwesomeIconView fill="#0d7377" glyphName="ARROW_RIGHT" rotate="-43" size="12" />
+                  </children>
+                  <padding><Insets right="10" top="8" /></padding>
+                </VBox>
+                <VBox alignment="BOTTOM_LEFT" GridPane.rowIndex="1">
+                  <children>
+                    <FontAwesomeIconView fill="#0d7377" glyphName="FIRE" size="22">
+                      <VBox.margin><Insets bottom="5" /></VBox.margin>
+                    </FontAwesomeIconView>
+                    <Label text="Protein" textFill="#0d7377"
+                           style="-fx-font-size:13px; -fx-font-weight:bold;" />
+                  </children>
+                  <padding><Insets bottom="12" left="14" /></padding>
+                </VBox>
+              </children>
+              <GridPane.margin><Insets right="20" /></GridPane.margin>
+            </GridPane>
+
+          </children>
+        </GridPane>
+
+        <!-- SWALLOW - separate full width row at bottom -->
+        <GridPane onMouseClicked="#goToSwallow" styleClass="shortcut-tile-unselected"
+                  maxWidth="1.7976931348623157E308" prefHeight="80">
+          <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS" />
+            <ColumnConstraints minWidth="40" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints vgrow="ALWAYS" />
+          </rowConstraints>
+          <children>
+            <HBox alignment="CENTER_LEFT" spacing="14" GridPane.columnIndex="0">
+              <children>
+                <FontAwesomeIconView fill="#0d7377" glyphName="SPOON" size="22" />
+                <Label text="Swallow" textFill="#0d7377"
+                       style="-fx-font-size:13px; -fx-font-weight:bold;" />
+              </children>
+              <padding><Insets left="16" /></padding>
+            </HBox>
+            <VBox alignment="CENTER_RIGHT" GridPane.columnIndex="1">
+              <children>
+                <FontAwesomeIconView fill="#0d7377" glyphName="ARROW_RIGHT" size="13" />
+              </children>
+              <padding><Insets right="14" /></padding>
+            </VBox>
+          </children>
+          <VBox.margin><Insets left="20" right="20" /></VBox.margin>
+        </GridPane>
+
+      </children>
+    </VBox>
+  </center>
+</BorderPane>

@@ -16,7 +16,7 @@ public class DatabaseConnection {
 
     private static final String URL = "jdbc:postgresql://localhost:5432/paucafe";
     private static final String USER = "postgres";
-    private static final String PASSWORD = "Stargirl10!";
+    private static final String PASSWORD = "your_password_here";
 
     public static Connection getConnect() throws SQLException {
         return DriverManager.getConnection(
